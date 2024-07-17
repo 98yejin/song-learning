@@ -3,15 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Typography, List, ListItem, Sheet } from "@mui/joy";
 import themeConfig from "./config/theme.json";
 import { songNotFound } from "./components/Song";
-
-interface Song {
-  description: string;
-  lyrics: {
-    english: string;
-    korean: string;
-  }[];
-  title: string;
-}
+import { Song } from "./types/song";
 
 const App: React.FC = () => {
   const [themes, setThemes] = useState<string[]>([]);
