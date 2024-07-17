@@ -1,10 +1,14 @@
 {
-  "description": "",
+  "description": "artist: Jorge Rivera-Herrans, Luke Holt, Cast of EPIC: The Musical",
   "lyrics": [
     {
-      "english": "",
-      "korean": ""
+      "english": "Alright, my brothers, listen closely",
+      "korean": "좋아, 내 형제들이여, 잘 들어라"
+    },
+    {
+      "english": "Tonight we make the Trojans pay",
+      "korean": "오늘 밤 우리는 트로이인들이 대가를 치르게 할 것이다"
     }
   ],
-  "title": ""
+  "title": "The Horse and the Infant"
 }

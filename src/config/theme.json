@@ -1,4 +1,60 @@
 {
-  "TheCyclopsSaga": ["Just-a-Man.json", "The-Horse-and-the-Infant.json"],
-  "TheTroySaga": ["Just-a-Man.json", "The-Horse-and-the-Infant.json"]
+  "TheCirceSaga": [
+    "Puppeteer.json",
+    "Wouldn’t-You-Like.json",
+    "Done-For.json",
+    "There-Are-Other-Ways.json"
+  ],
+  "TheCyclopsSaga": [
+    "Polyphemus.json",
+    "Survive.json",
+    "Remember-Them.json",
+    "My-Goodbye.json"
+  ],
+  "TheIthacaSaga": [
+    "The-Challenge.json",
+    "Hold-Them-Down.json",
+    "Odysseus.json",
+    "I-Can’t-Help-But-Wonder.json",
+    "Would-You-Fall-In-Love-With-Me-Again.json"
+  ],
+  "TheOceanSaga": [
+    "Storm.json",
+    "Luck-Runs-Out.json",
+    "Keep-Your-Friends-Close.json",
+    "Ruthlessness.json"
+  ],
+  "TheThunderSaga": [
+    "Suffering.json",
+    "Different-Beast.json",
+    "Scylla.json",
+    "Mutiny.json",
+    "Thunder-Bringer.json"
+  ],
+  "TheTroySaga": [
+    "The-Horse-and-the-Infant.json",
+    "Just-A-Man.json",
+    "Full-Speed-Ahead.json",
+    "Open-Arms.json",
+    "Warrior-of-the-Mind.json"
+  ],
+  "TheUnderworldSaga": [
+    "The-Underworld.json",
+    "No-Longer-You.json",
+    "Monster.json"
+  ],
+  "TheVengeanceSaga": [
+    "Not-Sorry-For-Loving-You.json",
+    "Dangerous.json",
+    "Charybdis.json",
+    "Get-in-the-Water.json",
+    "600-Strike.json"
+  ],
+  "TheWisdomSaga": [
+    "Legendary.json",
+    "Little-Wolf.json",
+    "We’d-Be-Fine.json",
+    "Love-in-Paradise.json",
+    "God-Games.json"
+  ]
 }

@@ -37,10 +37,7 @@ const App: React.FC = () => {
 
   return (
     <Container>
-      <Typography level="h2" component="h1" sx={{ mb: 2 }}>
-        Music Learning Website
-      </Typography>
-      <Sheet variant="outlined" sx={{ p: 2 }}>
+      <Sheet variant="outlined" sx={{ p: 2, mt: 2 }}>
         <Typography level="h4" component="h2" sx={{ mb: 1 }}>
           Themes
         </Typography>
