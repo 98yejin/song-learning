@@ -1,6 +1,7 @@
 // Header.tsx
 import React from "react";
 import { Box, Typography } from "@mui/joy";
+import QueueMusicTwoToneIcon from "@mui/icons-material/QueueMusicTwoTone";
 
 const Header: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const Header: React.FC = () => {
       }}
     >
       <Typography level="h4" component="h4">
+        <QueueMusicTwoToneIcon />
         LEARN ENGLISH WITH SONGS
       </Typography>
     </Box>
