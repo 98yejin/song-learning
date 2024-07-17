@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Typography, List, ListItem, Sheet } from "@mui/joy";
 import themeConfig from "./config/theme.json";
+import { songNotFound } from "./components/Song";
 
 interface Song {
   description: string;
@@ -16,6 +17,7 @@ const App: React.FC = () => {
   const [themes, setThemes] = useState<string[]>([]);
   const [selectedTheme, setSelectedTheme] = useState<string | null>(null);
   const [selectedSong, setSelectedSong] = useState<Song | null>(null);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   useEffect(() => {
     const themeNames = Object.keys(themeConfig);
@@ -28,8 +30,17 @@ const App: React.FC = () => {
   };
 
   const handleSongClick = async (song: string) => {
-    const songData = await import(`./config/${selectedTheme}/${song}`);
-    setSelectedSong(songData.default);
+    try {
+      const songData = await import(`./config/${selectedTheme}/${song}`);
+      setSelectedSong(songData.default);
+    } catch (error) {
+      console.error("Song file not found:", error);
+      setShowModal(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -80,6 +91,7 @@ const App: React.FC = () => {
           ))}
         </Sheet>
       )}
+      {songNotFound(showModal, handleCloseModal)}
     </Container>
   );
 };
