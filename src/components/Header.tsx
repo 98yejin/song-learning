@@ -1,6 +1,6 @@
 // Header.tsx
 import React from "react";
-import { Box, Button, Typography } from "@mui/joy";
+import { Box, Typography } from "@mui/joy";
 import IconButton from "@mui/joy/IconButton";
 import HomeIcon from "@mui/icons-material/Home";
 import GitHubIcon from "@mui/icons-material/GitHub";
