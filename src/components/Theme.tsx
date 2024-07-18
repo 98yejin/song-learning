@@ -11,18 +11,25 @@ export function themeTable(
   handleThemeClick: (theme: Theme) => void
 ) {
   return (
-    <Sheet variant="outlined" sx={{ p: 2, mt: 2 }}>
-      <Typography level="h4" component="h2" sx={{ mb: 1 }}>
-        Themes
-      </Typography>
+    <Sheet
+      variant="outlined"
+      sx={{
+        p: 2,
+        m: 2,
+        borderRadius: "sm",
+        overflow: "auto",
+        backgroundColor: "background.surface",
+        textOverflow: "auto",
+      }}
+    >
       <Table>
         <thead>
           <tr>
             <th style={{ width: "5%" }}>Index</th>
             <th>Folder</th>
-            <th style={{ width: "40%" }}>Description</th>
-            <th>Tag</th>
-            <th>Action</th>
+            <th>Description</th>
+            <th style={{ maxWidth: "10%" }}>Tag</th>
+            <th style={{ maxWidth: "10%" }}>Action</th>
           </tr>
         </thead>
         <tbody>
