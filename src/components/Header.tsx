@@ -1,13 +1,39 @@
 // Header.tsx
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import { Box, Typography } from "@mui/joy";
 import IconButton from "@mui/joy/IconButton";
 import HomeIcon from "@mui/icons-material/Home";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import FolderRoundedIcon from "@mui/icons-material/FolderRounded";
 
-const Header: React.FC = () => {
+const LocationTypography: React.FC<{ location: string; type?: string }> = ({
+  location,
+  type,
+}) => {
+  if (type == "folder") {
+    return (
+      <Typography
+        startDecorator={<FolderRoundedIcon color="primary" />}
+        style={{ fontSize: "0.9rem" }}
+      >
+        {location}
+      </Typography>
+    );
+  }
+  return <Typography style={{ fontSize: "0.9rem" }}>{location}</Typography>;
+};
+
+type HeaderProps = {
+  location: string;
+  type?: string;
+};
+
+const Header: React.FC<HeaderProps> = ({ location, type }) => {
+  const navigate = useNavigate();
   const handleHomeClick = () => {
-    window.location.href = "/";
+    navigate("/");
   };
   return (
     <Box
@@ -32,6 +58,7 @@ const Header: React.FC = () => {
           </Typography>
         </Typography>
       </Box>
+      <LocationTypography location={location} type={type} />
       <IconButton
         component="a"
         href="https://github.com/98yejin/song-learning"

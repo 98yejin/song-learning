@@ -24,7 +24,9 @@ const HomePage: React.FC = () => {
   }, []);
 
   const handleThemeClick = (theme: Theme) => {
-    navigate(`/${theme.title.toLowerCase().replace(/ /g, "-")}`);
+    navigate(`/theme/${theme.title.toLowerCase().replace(/ /g, "-")}`, {
+      state: theme,
+    });
   };
 
   const handleSongClick = async (song: string) => {
@@ -43,7 +45,7 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <Header location="home" />
       <Container>
         {themeTable(themes, handleThemeClick)}
         {selectedTheme && (
