@@ -4,19 +4,21 @@ import { Container, Typography, List, ListItem, Sheet } from "@mui/joy";
 import themeConfig from "./config/theme.json";
 import { songNotFound } from "./components/Song";
 import { Song } from "./types/song";
+import { Theme } from "./types/theme";
+import { themeTable } from "./components/Theme";
 
 const App: React.FC = () => {
-  const [themes, setThemes] = useState<string[]>([]);
-  const [selectedTheme, setSelectedTheme] = useState<string | null>(null);
+  const [themes, setThemes] = useState<Theme[]>([]);
+  const [selectedTheme, setSelectedTheme] = useState<Theme | null>(null);
   const [selectedSong, setSelectedSong] = useState<Song | null>(null);
   const [showModal, setShowModal] = useState<boolean>(false);
 
   useEffect(() => {
-    const themeNames = Object.keys(themeConfig);
-    setThemes(themeNames);
+    const themes = Object.values(themeConfig);
+    setThemes(themes);
   }, []);
 
-  const handleThemeClick = (theme: string) => {
+  const handleThemeClick = (theme: Theme) => {
     setSelectedTheme(theme);
     setSelectedSong(null);
   };
@@ -37,31 +39,18 @@ const App: React.FC = () => {
 
   return (
     <Container>
-      <Sheet variant="outlined" sx={{ p: 2, mt: 2 }}>
-        <Typography level="h4" component="h2" sx={{ mb: 1 }}>
-          Themes
-        </Typography>
-        <List>
-          {themes.map((theme) => (
-            <ListItem key={theme} onClick={() => handleThemeClick(theme)}>
-              {theme}
-            </ListItem>
-          ))}
-        </List>
-      </Sheet>
+      {themeTable(themes, handleThemeClick)}
       {selectedTheme && (
         <Sheet variant="outlined" sx={{ p: 2, mt: 2 }}>
           <Typography level="h4" component="h2" sx={{ mb: 1 }}>
-            Songs in {selectedTheme}
+            Songs in {selectedTheme.title}
           </Typography>
           <List>
-            {themeConfig[selectedTheme as keyof typeof themeConfig].map(
-              (song) => (
-                <ListItem key={song} onClick={() => handleSongClick(song)}>
-                  {song.replace(".json", "")}
-                </ListItem>
-              )
-            )}
+            {selectedTheme.songs.map((song) => (
+              <ListItem key={song} onClick={() => handleSongClick(song)}>
+                {song.replace(".json", "")}
+              </ListItem>
+            ))}
           </List>
         </Sheet>
       )}

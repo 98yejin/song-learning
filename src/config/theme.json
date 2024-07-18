@@ -1,60 +1,101 @@
 {
-  "TheCirceSaga": [
-    "Puppeteer.json",
-    "Wouldn’t-You-Like.json",
-    "Done-For.json",
-    "There-Are-Other-Ways.json"
-  ],
-  "TheCyclopsSaga": [
-    "Polyphemus.json",
-    "Survive.json",
-    "Remember-Them.json",
-    "My-Goodbye.json"
-  ],
-  "TheIthacaSaga": [
-    "The-Challenge.json",
-    "Hold-Them-Down.json",
-    "Odysseus.json",
-    "I-Can’t-Help-But-Wonder.json",
-    "Would-You-Fall-In-Love-With-Me-Again.json"
-  ],
-  "TheOceanSaga": [
-    "Storm.json",
-    "Luck-Runs-Out.json",
-    "Keep-Your-Friends-Close.json",
-    "Ruthlessness.json"
-  ],
-  "TheThunderSaga": [
-    "Suffering.json",
-    "Different-Beast.json",
-    "Scylla.json",
-    "Mutiny.json",
-    "Thunder-Bringer.json"
-  ],
-  "TheTroySaga": [
-    "The-Horse-and-the-Infant.json",
-    "Just-A-Man.json",
-    "Full-Speed-Ahead.json",
-    "Open-Arms.json",
-    "Warrior-of-the-Mind.json"
-  ],
-  "TheUnderworldSaga": [
-    "The-Underworld.json",
-    "No-Longer-You.json",
-    "Monster.json"
-  ],
-  "TheVengeanceSaga": [
-    "Not-Sorry-For-Loving-You.json",
-    "Dangerous.json",
-    "Charybdis.json",
-    "Get-in-the-Water.json",
-    "600-Strike.json"
-  ],
-  "TheWisdomSaga": [
-    "Legendary.json",
-    "Little-Wolf.json",
-    "We’d-Be-Fine.json",
-    "Love-in-Paradise.json",
-    "God-Games.json"
-  ]
+  "TheCirceSaga": {
+    "description": "오디세우스는 마법사 여신 키르케의 섬에 당도한다. 키르케는 오디세우스의 부하들을 돼지로 변신시킨 뒤 오디세우스마저 유혹하여 파멸시키려 하나, 그가 자신의 유혹을 뿌리치자 깊은 인상을 받아, 명계에 있는 한 예언자를 만나 집으로 돌아갈 방법을 알아내게 도와주겠다고 약속한다.",
+    "songs": [
+      "Puppeteer.json",
+      "Wouldn’t-You-Like.json",
+      "Done-For.json",
+      "There-Are-Other-Ways.json"
+    ],
+    "tags": ["EPIC: The Musical"],
+    "title": "The Circe Saga"
+  },
+  "TheCyclopsSaga": {
+    "description": "오디세우스와 그의 일행은 키클롭스 폴리페모스가 사는 섬에 상륙하여 시련을 겪는다.",
+    "songs": [
+      "Polyphemus.json",
+      "Survive.json",
+      "Remember-Them.json",
+      "My-Goodbye.json"
+    ],
+    "tags": ["EPIC: The Musical"],
+    "title": "The Cyclops Saga"
+  },
+  "TheIthacaSaga": {
+    "description": "",
+    "songs": [
+      "The-Challenge.json",
+      "Hold-Them-Down.json",
+      "Odysseus.json",
+      "I-Can’t-Help-But-Wonder.json",
+      "Would-You-Fall-In-Love-With-Me-Again.json"
+    ],
+    "tags": ["EPIC: The Musical"],
+    "title": "The Ithaca Saga"
+  },
+  "TheOceanSaga": {
+    "description": "오디세우스는 해신 포세이돈의 진노를 사서 수많은 부하들을 잃고 표류하게 된다.",
+    "songs": [
+      "Storm.json",
+      "Luck-Runs-Out.json",
+      "Keep-Your-Friends-Close.json",
+      "Ruthlessness.json"
+    ],
+    "tags": ["EPIC: The Musical"],
+    "title": "The Ocean Saga"
+  },
+  "TheThunderSaga": {
+    "description": "귀향의 여정을 계속하던 오디세우스는 바다 괴물 스킬라의 영역을 통과하기 위해 선원 여섯을 희생시켰다가 나머지 선원들의 인망을 잃어 쿠데타를 당한다. 선원들은 절망과 굶주림에 지쳐 태양신의 소를 잡아먹으려 했다가 제우스에게 벌을 받아 몰살당하고 오디세우스만이 홀로 살아남는다.",
+    "songs": [
+      "Suffering.json",
+      "Different-Beast.json",
+      "Scylla.json",
+      "Mutiny.json",
+      "Thunder-Bringer.json"
+    ],
+    "tags": ["EPIC: The Musical"],
+    "title": "The Thunder Saga"
+  },
+  "TheTroySaga": {
+    "description": "오디세우스가 트로이 전쟁의 종전을 이끈 뒤 귀향의 여정에 오른다.",
+    "songs": [
+      "The-Horse-and-the-Infant.json",
+      "Just-A-Man.json",
+      "Full-Speed-Ahead.json",
+      "Open-Arms.json",
+      "Warrior-of-the-Mind.json"
+    ],
+    "tags": ["EPIC: The Musical"],
+    "title": "The Troy Saga"
+  },
+  "TheUnderworldSaga": {
+    "description": "오디세우스는 명계에서 예언자 테이레시아스를 만나 그의 예언을 듣는다.",
+    "songs": ["The-Underworld.json", "No-Longer-You.json", "Monster.json"],
+    "tags": ["EPIC: The Musical"],
+    "title": "The Underworld Saga"
+  },
+  "TheVengeanceSaga": {
+    "description": "",
+    "songs": [
+      "Not-Sorry-For-Loving-You.json",
+      "Dangerous.json",
+      "Charybdis.json",
+      "Get-in-the-Water.json",
+      "600-Strike.json"
+    ],
+    "tags": ["EPIC: The Musical"],
+    "title": "The Vengeance Saga"
+  },
+  "TheWisdomSaga": {
+    "description": "",
+    "songs": [
+      "Legendary.json",
+      "Little-Wolf.json",
+      "We’d-Be-Fine.json",
+      "Love-in-Paradise.json",
+      "God-Games.json"
+    ],
+    "tags": ["EPIC: The Musical"],
+    "title": "The Wisdom Saga"
+  }
 }
