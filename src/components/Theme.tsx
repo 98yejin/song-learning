@@ -37,12 +37,11 @@ export function themeTable(
             <th>Folder</th>
             <th>Description</th>
             <th>Tag</th>
-            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {themes.map((theme, index) => (
-            <tr>
+            <tr onClick={() => handleThemeClick(theme)}>
               <td key={index}>{index + 1}</td>
               <td key={theme.title}>
                 <Typography
@@ -67,9 +66,6 @@ export function themeTable(
                     {tag}
                   </Button>
                 ))}
-              </td>
-              <td key={`${theme.title}-action`}>
-                <Button onClick={() => handleThemeClick(theme)}>Select</Button>
               </td>
             </tr>
           ))}
