@@ -17,19 +17,27 @@ export function themeTable(
         p: 2,
         m: 2,
         borderRadius: "sm",
-        overflow: "auto",
         backgroundColor: "background.surface",
-        textOverflow: "auto",
       }}
     >
-      <Table>
+      <Table
+        hoverRow
+        size="sm"
+        borderAxis="none"
+        variant="soft"
+        sx={{
+          "--TableCell-paddingX": "1rem",
+          "--TableCell-paddingY": "1rem",
+          overflow: "scroll",
+        }}
+      >
         <thead>
           <tr>
             <th style={{ width: "5%" }}>Index</th>
             <th>Folder</th>
             <th>Description</th>
-            <th style={{ maxWidth: "10%" }}>Tag</th>
-            <th style={{ maxWidth: "10%" }}>Action</th>
+            <th>Tag</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
