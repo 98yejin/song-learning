@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Theme } from "../types/theme";
 
-import { List, ListItem, Sheet, Typography } from "@mui/joy";
+import { Sheet, Typography } from "@mui/joy";
 import BookRoundedIcon from "@mui/icons-material/BookRounded";
 
 import Header from "../components/Header";
-import { SongNotFound } from "../components/Song";
+import { SongNotFound, SongTable } from "../components/Song";
 
 interface ThemeDescriptionProps {
   description: string;
@@ -22,7 +22,7 @@ const ThemeDescription: React.FC<ThemeDescriptionProps> = (
         p: 2,
         m: 2,
         borderRadius: "sm",
-        backgroundColor: "background.surface",
+        backgroundColor: "white",
       }}
     >
       <Typography
@@ -59,15 +59,7 @@ const ThemePage: React.FC = () => {
     <div>
       <Header location={theme.title} type="folder" />
       <ThemeDescription description={theme.description} />
-      <Sheet variant="outlined" sx={{ p: 2, mt: 2 }}>
-        <List>
-          {theme.songs.map((song) => (
-            <ListItem key={song} onClick={() => handleSongClick(song)}>
-              {song.replace(".json", "")}
-            </ListItem>
-          ))}
-        </List>
-      </Sheet>
+      <SongTable songs={theme.songs} handleSongClick={handleSongClick} />
       <SongNotFound showModal={showModal} handleCloseModal={handleCloseModal} />
     </div>
   );
