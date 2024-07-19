@@ -7,7 +7,7 @@ import { List, ListItem, Sheet, Typography } from "@mui/joy";
 import BookRoundedIcon from "@mui/icons-material/BookRounded";
 
 import Header from "../components/Header";
-import { songNotFound } from "../components/Song";
+import { SongNotFound } from "../components/Song";
 
 interface ThemeDescriptionProps {
   description: string;
@@ -68,7 +68,7 @@ const ThemePage: React.FC = () => {
           ))}
         </List>
       </Sheet>
-      {songNotFound(showModal, handleCloseModal)}
+      <SongNotFound showModal={showModal} handleCloseModal={handleCloseModal} />
     </div>
   );
 };

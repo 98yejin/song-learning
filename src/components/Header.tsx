@@ -16,13 +16,17 @@ const LocationTypography: React.FC<{ location: string; type?: string }> = ({
     return (
       <Typography
         startDecorator={<FolderRoundedIcon color="primary" />}
-        style={{ fontSize: "0.9rem" }}
+        style={{ fontSize: "0.9rem", cursor: "default" }}
       >
         {location}
       </Typography>
     );
   }
-  return <Typography style={{ fontSize: "0.9rem" }}>{location}</Typography>;
+  return (
+    <Typography style={{ fontSize: "0.9rem", cursor: "default" }}>
+      {location}
+    </Typography>
+  );
 };
 
 type HeaderProps = {
@@ -51,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({ location, type }) => {
         <IconButton variant="outlined" onClick={handleHomeClick}>
           <HomeIcon />
         </IconButton>
-        <Typography style={{ fontSize: "0.9rem" }}>
+        <Typography style={{ fontSize: "0.9rem", cursor: "default" }}>
           98yejin /{" "}
           <Typography component="span" style={{ fontWeight: 500 }}>
             song-learning

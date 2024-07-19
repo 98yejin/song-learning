@@ -6,10 +6,12 @@ function truncateString(str: string): string {
   return str.length > 45 ? str.substring(0, 45) + "..." : str;
 }
 
-export function themeTable(
-  themes: Theme[],
-  handleThemeClick: (theme: Theme) => void
-) {
+interface ThemeTableProps {
+  themes: Theme[];
+  handleThemeClick: (theme: Theme) => void;
+}
+
+export const ThemeTable = ({ themes, handleThemeClick }: ThemeTableProps) => {
   return (
     <Sheet
       variant="outlined"
@@ -73,4 +75,4 @@ export function themeTable(
       </Table>
     </Sheet>
   );
-}
+};

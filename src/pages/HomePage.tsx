@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 import { Container, Typography, List, ListItem, Sheet } from "@mui/joy";
 import themeConfig from "../config/theme.json";
-import { songNotFound } from "../components/Song";
+import { SongNotFound } from "../components/Song";
 import { Song } from "../types/song";
 import { Theme } from "../types/theme";
-import { themeTable } from "../components/Theme";
+import { ThemeTable } from "../components/Theme";
 import Header from "../components/Header";
 
 const HomePage: React.FC = () => {
@@ -45,9 +45,9 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      <Header location="home" />
+      <Header location="home sweet home ⸜( ˙ ˘ ˙)⸝♡" />
       <Container>
-        {themeTable(themes, handleThemeClick)}
+        <ThemeTable themes={themes} handleThemeClick={handleThemeClick} />
         {selectedTheme && (
           <Sheet variant="outlined" sx={{ p: 2, mt: 2 }}>
             <Typography level="h4" component="h2" sx={{ mb: 1 }}>
@@ -77,7 +77,10 @@ const HomePage: React.FC = () => {
             ))}
           </Sheet>
         )}
-        {songNotFound(showModal, handleCloseModal)}
+        <SongNotFound
+          showModal={showModal}
+          handleCloseModal={handleCloseModal}
+        />
       </Container>
     </>
   );

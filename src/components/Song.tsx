@@ -1,6 +1,13 @@
 import { Modal, ModalClose, ModalDialog, Typography } from "@mui/joy";
 
-export function songNotFound(showModal: boolean, handleCloseModal: () => void) {
+interface SongNotFoundProps {
+  showModal: boolean;
+  handleCloseModal: () => void;
+}
+export function SongNotFound({
+  showModal,
+  handleCloseModal,
+}: SongNotFoundProps) {
   return (
     <Modal open={showModal} onClose={handleCloseModal}>
       <ModalDialog>
