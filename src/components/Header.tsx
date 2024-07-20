@@ -7,15 +7,22 @@ import IconButton from "@mui/joy/IconButton";
 import HomeIcon from "@mui/icons-material/Home";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import FolderRoundedIcon from "@mui/icons-material/FolderRounded";
+import AudioFileRoundedIcon from "@mui/icons-material/AudioFileRounded";
 
 const LocationTypography: React.FC<{ location: string; type?: string }> = ({
   location,
   type,
 }) => {
-  if (type == "folder") {
+  if (type) {
+    const decorator =
+      type == "folder" ? (
+        <FolderRoundedIcon color="primary" />
+      ) : (
+        <AudioFileRoundedIcon color="primary" />
+      );
     return (
       <Typography
-        startDecorator={<FolderRoundedIcon color="primary" />}
+        startDecorator={decorator}
         style={{ fontSize: "0.9rem", cursor: "default" }}
       >
         {location}

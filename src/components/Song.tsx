@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
   Button,
   Modal,
@@ -8,8 +11,6 @@ import {
   Typography,
 } from "@mui/joy";
 import AudioFileRoundedIcon from "@mui/icons-material/AudioFileRounded";
-import { Song } from "../types/song";
-import { useState } from "react";
 
 interface SongProps {
   showModal: boolean;
@@ -36,13 +37,17 @@ export function SongNotFound({ showModal, handleCloseModal }: SongProps) {
 }
 
 export const SongTable = ({ theme, songs }: SongTableProps) => {
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const handleSongClick = async (song: string) => {
+  const handleSongClick = async (song: string, action: string) => {
     try {
       const songData = await import(
-        `../config/${theme.replace(/ /g, "")}/${song}`
+        `../config/${theme.replace(/ /g, "")}/${song.toLowerCase()}`
       );
+      navigate(`/song/${song.toLowerCase()}`, {
+        state: { songData: songData, action, theme },
+      });
     } catch (error) {
       console.error("Song file not found:", error);
       setShowModal(true);
@@ -83,7 +88,7 @@ export const SongTable = ({ theme, songs }: SongTableProps) => {
         </thead>
         <tbody>
           {songs.map((song, index) => (
-            <tr onClick={() => handleSongClick(song)}>
+            <tr>
               <td key={index}>{index + 1}</td>
               <td key={song}>
                 <Typography
@@ -96,26 +101,29 @@ export const SongTable = ({ theme, songs }: SongTableProps) => {
               </td>
               <td key={`${song}-action`}>
                 <Button
-                  key={index}
+                  key={`${index}-copy`}
                   style={{ margin: "5px" }}
                   variant="soft"
                   size="sm"
+                  onClick={() => handleSongClick(song, "copy")}
                 >
                   Copying
                 </Button>
                 <Button
-                  key={index}
+                  key={`${index}-arrange`}
                   style={{ margin: "5px" }}
                   variant="soft"
                   size="sm"
+                  onClick={() => handleSongClick(song, "arrange")}
                 >
                   Arranging
                 </Button>
                 <Button
-                  key={index}
+                  key={`${index}-translate`}
                   style={{ margin: "5px" }}
                   variant="soft"
                   size="sm"
+                  onClick={() => handleSongClick(song, "translate")}
                 >
                   Translate
                 </Button>
