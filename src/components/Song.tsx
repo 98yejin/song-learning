@@ -2,15 +2,21 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {
+  Box,
   Button,
+  ButtonGroup,
+  IconButton,
   Modal,
   ModalClose,
   ModalDialog,
   Sheet,
   Table,
+  ToggleButtonGroup,
   Typography,
 } from "@mui/joy";
 import AudioFileRoundedIcon from "@mui/icons-material/AudioFileRounded";
+import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
+import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 
 interface SongProps {
   showModal: boolean;
@@ -20,6 +26,17 @@ interface SongProps {
 interface SongTableProps {
   theme: string;
   songs: string[];
+}
+
+interface ActionGroupProps {
+  value: string | null;
+  setValue: React.Dispatch<React.SetStateAction<string | null>>;
+}
+
+interface ChangeIndexProps {
+  index: number;
+  maxIndex: number;
+  setIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export function SongNotFound({ showModal, handleCloseModal }: SongProps) {
@@ -134,5 +151,63 @@ export const SongTable = ({ theme, songs }: SongTableProps) => {
       </Table>
       <SongNotFound showModal={showModal} handleCloseModal={handleCloseModal} />
     </Sheet>
+  );
+};
+
+export const ActionGroup: React.FC<ActionGroupProps> = (
+  props: ActionGroupProps
+) => {
+  const { value, setValue } = props;
+  return (
+    <ToggleButtonGroup
+      value={value}
+      onChange={(_, newValue) => {
+        setValue(newValue);
+      }}
+      sx={{
+        display: "flex",
+        justifyContent: "flex-end",
+        padding: "1rem",
+      }}
+    >
+      <Button value="copy">Copying</Button>
+      <Button value="arrange">Arranging</Button>
+      <Button value="translate">Translate</Button>
+    </ToggleButtonGroup>
+  );
+};
+
+export const ChangeIndexGroup: React.FC<ChangeIndexProps> = (
+  props: ChangeIndexProps
+) => {
+  const leftDisabled = props.index === 0;
+  const rightDisabled = props.index === props.maxIndex;
+  return (
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <ButtonGroup
+        spacing="1rem"
+        variant="plain"
+        aria-label="plain button group"
+      >
+        <IconButton
+          variant="plain"
+          onClick={() => {
+            props.setIndex(props.index - 1);
+          }}
+          disabled={leftDisabled}
+        >
+          <ArrowCircleLeftIcon />
+        </IconButton>
+        <IconButton
+          variant="plain"
+          onClick={() => {
+            props.setIndex(props.index + 1);
+          }}
+          disabled={rightDisabled}
+        >
+          <ArrowCircleRightIcon />
+        </IconButton>
+      </ButtonGroup>
+    </Box>
   );
 };

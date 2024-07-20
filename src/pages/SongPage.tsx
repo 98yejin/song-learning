@@ -2,11 +2,15 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-import { Sheet, Typography, ToggleButtonGroup, Button } from "@mui/joy";
+import { Sheet, Typography } from "@mui/joy";
 import BookRoundedIcon from "@mui/icons-material/BookRounded";
 
 import Header from "../components/Header";
 import { Song } from "../types/song";
+import SongCopy from "../components/SongCopy";
+import SongArrange from "../components/SongArrage";
+import SongTranslate from "../components/SongTranslate";
+import { ActionGroup, ChangeIndexGroup } from "../components/Song";
 
 interface DescriptionProps {
   description: string;
@@ -16,11 +20,6 @@ interface SongProps {
   songData: Song;
   action: string;
   theme: string;
-}
-
-interface ActionGroupProps {
-  value: string | null;
-  setValue: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 const Description: React.FC<DescriptionProps> = (props: DescriptionProps) => {
@@ -43,39 +42,31 @@ const Description: React.FC<DescriptionProps> = (props: DescriptionProps) => {
   );
 };
 
-const ActionGroup: React.FC<ActionGroupProps> = (props: ActionGroupProps) => {
-  const { value, setValue } = props;
-  return (
-    <ToggleButtonGroup
-      value={value}
-      onChange={(_, newValue) => {
-        setValue(newValue);
-      }}
-      sx={{
-        display: "flex",
-        justifyContent: "flex-end",
-        padding: "1rem",
-      }}
-    >
-      <Button value="copy">Copying</Button>
-      <Button value="arrange">Arranging</Button>
-      <Button value="translate">Translate</Button>
-    </ToggleButtonGroup>
-  );
-};
-
 const SongPage: React.FC = () => {
   const location = useLocation();
   const { songData, action, theme } = location.state as SongProps;
+  const lyrics = songData.lyrics;
+  const maxIndex = lyrics.length - 1;
 
   const [value, setValue] = React.useState<string | null>(action);
+  const [index, setIndex] = React.useState<number>(0);
+  const lyric = lyrics[index];
+
+  let content;
+  if (value === "copy") {
+    content = <SongCopy lyric={lyric} />;
+  } else if (value === "arrange") {
+    content = <SongArrange lyric={lyric} />;
+  } else if (value === "translate") {
+    content = <SongTranslate lyric={lyric} />;
+  }
   return (
     <div>
-      <div>
-        <Header location={`${theme} / ${songData.title}`} type="song" />
-        <ActionGroup value={value} setValue={setValue} />
-        <Description description={songData.description} />
-      </div>
+      <Header location={`${theme} / ${songData.title}`} type="song" />
+      <ActionGroup value={value} setValue={setValue} />
+      <Description description={songData.description} />
+      {content}
+      <ChangeIndexGroup index={index} maxIndex={maxIndex} setIndex={setIndex} />
     </div>
   );
 };

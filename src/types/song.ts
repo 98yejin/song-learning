@@ -6,3 +6,10 @@ export interface Song {
   }[];
   title: string;
 }
+
+export interface SongActionProps {
+  lyric: {
+    english: string;
+    korean: string;
+  };
+}
