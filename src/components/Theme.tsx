@@ -51,7 +51,7 @@ export const ThemeTable = ({ themes, handleThemeClick }: ThemeTableProps) => {
                   startDecorator={<FolderRoundedIcon color="primary" />}
                   sx={{ alignItems: "flex-start" }}
                 >
-                  {theme.title}
+                  {theme.title}({theme.songs.length})
                 </Typography>
               </td>
               <td key={`${theme.title}-description`}>
