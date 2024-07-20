@@ -9,15 +9,19 @@ import {
 } from "@mui/joy";
 import AudioFileRoundedIcon from "@mui/icons-material/AudioFileRounded";
 import { Song } from "../types/song";
+import { useState } from "react";
 
-interface SongNotFoundProps {
+interface SongProps {
   showModal: boolean;
   handleCloseModal: () => void;
 }
-export function SongNotFound({
-  showModal,
-  handleCloseModal,
-}: SongNotFoundProps) {
+
+interface SongTableProps {
+  theme: string;
+  songs: string[];
+}
+
+export function SongNotFound({ showModal, handleCloseModal }: SongProps) {
   return (
     <Modal open={showModal} onClose={handleCloseModal}>
       <ModalDialog>
@@ -31,16 +35,24 @@ export function SongNotFound({
   );
 }
 
-function truncateString(str: string): string {
-  return str.length > 45 ? str.substring(0, 45) + "..." : str;
-}
+export const SongTable = ({ theme, songs }: SongTableProps) => {
+  const [showModal, setShowModal] = useState<boolean>(false);
 
-interface SongTableProps {
-  songs: string[];
-  handleSongClick: (song: string) => void;
-}
+  const handleSongClick = async (song: string) => {
+    try {
+      const songData = await import(
+        `../config/${theme.replace(/ /g, "")}/${song}`
+      );
+    } catch (error) {
+      console.error("Song file not found:", error);
+      setShowModal(true);
+    }
+  };
 
-export const SongTable = ({ songs, handleSongClick }: SongTableProps) => {
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <Sheet
       variant="outlined"
@@ -89,13 +101,30 @@ export const SongTable = ({ songs, handleSongClick }: SongTableProps) => {
                   variant="soft"
                   size="sm"
                 >
-                  Study
+                  Copying
+                </Button>
+                <Button
+                  key={index}
+                  style={{ margin: "5px" }}
+                  variant="soft"
+                  size="sm"
+                >
+                  Arranging
+                </Button>
+                <Button
+                  key={index}
+                  style={{ margin: "5px" }}
+                  variant="soft"
+                  size="sm"
+                >
+                  Translate
                 </Button>
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
+      <SongNotFound showModal={showModal} handleCloseModal={handleCloseModal} />
     </Sheet>
   );
 };
