@@ -8,6 +8,282 @@
     {
       "english": "Tonight we make the Trojans pay",
       "korean": "오늘 밤 우리는 트로이인들이 대가를 치르게 할 것이다"
+    },
+    {
+      "english": "Ten years of war, they killed us slowly",
+      "korean": "10년 간의 전쟁 동안 저들은 우리를 천천히 죽여 왔지"
+    },
+    {
+      "english": "But now we'll be the one's who slay",
+      "korean": "하지만 오늘은 우리가 그들을 사냥하는 쪽이다"
+    },
+    {
+      "english": "Think of your wives and your children",
+      "korean": "너희의 아내와 아이들을 생각하라"
+    },
+    {
+      "english": "Your families wonder where you've been",
+      "korean": "너희의 가족들은 너희가 어디에 가 있었는지 궁금해한다"
+    },
+    {
+      "english": "They're growing old and yet you're still here",
+      "korean": "그들은 나이를 먹어 가는데 너희는 아직도 여기에 있지"
+    },
+    {
+      "english": "Do what I say and you'll see them again",
+      "korean": "내 명령을 따르면 그들을 다시 보게 될 것이다"
+    },
+    {
+      "english": "SOLDIERS",
+      "korean": "존명!"
+    },
+    {
+      "english": "Diomedes will lead the charge",
+      "korean": "디오메데스는 돌격을 이끌고"
+    },
+    {
+      "english": "Agamemnon will flank the guards",
+      "korean": "아가멤논은 측면에서 경비병들을 치시오"
+    },
+    {
+      "english": "Menelaus will let our mates through the gates",
+      "korean": "메넬라오스는 우리의 동료들을 성문을 통해 들여보내"
+    },
+    {
+      "english": "to take the whole city at large",
+      "korean": "도시 내에서 활개칠 수 있게 하시오"
+    },
+    {
+      "english": "Teucer will shoot any ambush attack",
+      "korean": "테우크로스는 매복을 있는 대로 제거할 것"
+    },
+    {
+      "english": "And Little Ajax will stay back",
+      "korean": "그리고 소 아이아스는 물러나 있을 것"
+    },
+    {
+      "english": "Nestor, secure Helen and protect her",
+      "korean": "네스토르, 헬레네를 확보하여 보호하시오"
+    },
+    {
+      "english": "Neo, avenge your father, kill the brothers of Hector!",
+      "korean": "네오, 네 부친의 복수를 해라, 헥토르의 형제들을 죽여라!"
+    },
+    {
+      "english": "Yes sir!",
+      "korean": "존명!"
+    },
+    {
+      "english": "Find that inner strength now",
+      "korean": "지금 그 내면의 힘을 찾아라"
+    },
+    {
+      "english": "Use that well of pride",
+      "korean": "그 긍지의 원천을 사용해라"
+    },
+    {
+      "english": "Fight through every pain now",
+      "korean": "모든 고통에 맞서 싸워라"
+    },
+    {
+      "english": "Ask yourself inside",
+      "korean": "내면의 너 자신에게 물어보아라"
+    },
+    {
+      "english": "What do you live for?",
+      "korean": "너는 무엇을 위해 사는가?"
+    },
+    {
+      "english": "What do you try for?",
+      "korean": "너는 무엇을 위해 노력하는가?"
+    },
+    {
+      "english": "What do you wish for?",
+      "korean": "너는 무엇을 소망하는가?"
+    },
+    {
+      "english": "What do you fight for?",
+      "korean": "너는 무엇을 위해 싸우는가?"
+    },
+    {
+      "english": "What do you live for?",
+      "korean": "무엇을 위해 사는가?"
+    },
+    {
+      "english": "What do you try for?",
+      "korean": "무엇을 위해 노력하는가?"
+    },
+    {
+      "english": "What do you wish for?",
+      "korean": "무엇을 소망하는가?"
+    },
+    {
+      "english": "What do you fight for?",
+      "korean": "무엇을 위해 싸우는가?"
+    },
+    {
+      "english": "Penelope...",
+      "korean": "페넬로페...."
+    },
+    {
+      "english": "Penelope...",
+      "korean": "페넬로페...."
+    },
+    {
+      "english": "And Telemachus",
+      "korean": "그리고 텔레마코스"
+    },
+    {
+      "english": "I fight for us, I fight for us",
+      "korean": "나는 우리를 위해 싸우고 있어, 우리를 위해"
+    },
+    {
+      "english": "(What do you live for?) Penelope",
+      "korean": "(무엇을 위해 사는가?) 페넬로페"
+    },
+    {
+      "english": "(What do you try for?) Telemachus",
+      "korean": "(무엇을 위해 노력하는가?) 텔레마코스"
+    },
+    {
+      "english": "(What do you wish for?) I'm on my way",
+      "korean": "(무엇을 소망하는가?) 지금 가는 길이야"
+    },
+    {
+      "english": "(What do you fight for?) Attack!",
+      "korean": "(무엇을 위해 싸우는가?) 공격!"
+    },
+    {
+      "english": "Aaaagh!",
+      "korean": "아악!"
+    },
+    {
+      "english": "...Who was that?",
+      "korean": "...누구였지?"
+    },
+    {
+      "english": "A vision",
+      "korean": "계시로다"
+    },
+    {
+      "english": "Of what is to come, can not be outrun",
+      "korean": "피할 수 없는 가까운 미래다"
+    },
+    {
+      "english": "Can only be dealt with right here and now",
+      "korean": "오직 바로 여기에서만 처리할 수 있는 일이지"
+    },
+    {
+      "english": "Tell me how",
+      "korean": "어찌할지 말씀하십시오"
+    },
+    {
+      "english": "I don't think you're ready",
+      "korean": "네가 준비되었다고 생각하지 않는다"
+    },
+    {
+      "english": "A mission",
+      "korean": "임무로다"
+    },
+    {
+      "english": "To kill someone's son, a foe who won't run",
+      "korean": "누군가의 아들을 죽이는 일이지, 달아나지 않을 적이로다"
+    },
+    {
+      "english": "Unlike anyone you have faced before",
+      "korean": "이전에 네가 마주하였던 어느 누구와도 다를 것이다"
+    },
+    {
+      "english": "Say no more, I know that I'm ready",
+      "korean": "더 말씀 마소서, 제가 준비되었음을 압니다"
+    },
+    {
+      "english": "I don't think you're ready",
+      "korean": "네가 준비되었다고 생각하지 않노라"
+    },
+    {
+      "english": "It's just an infant, it's just a boy",
+      "korean": "한낱 젖먹이입니다, 한낱 사내아이인데요"
+    },
+    {
+      "english": "What sort of imminent threat does he pose that I can not avoid?",
+      "korean": "도대체 이 아이가 제게 가할 임박한 위협이란 무엇입니까?"
+    },
+    {
+      "english": "This is the son of none other than Troy's very own prince Hector",
+      "korean": "이 아이는 다름아닌 바로 트로이의 왕자 헥토르의 아들이니라"
+    },
+    {
+      "english": "know that he will grow from a boy to an avenger",
+      "korean": "이 아이가 소년에서 복수귀로 자랄 터이니"
+    },
+    {
+      "english": "One fuelled with rage as you're consumed by age",
+      "korean": "네가 세월에 삼켜지는 동안 그는 분노로 차오를 것이니라"
+    },
+    {
+      "english": "If you don't end him now you'll have no one left to save",
+      "korean": "여기서 이 아이를 끝장내지 않으면 네게는 지킬 이가 누구도 남지 않으리라"
+    },
+    {
+      "english": "You can say goodbye to (Penelope)",
+      "korean": "페넬로페와도 작별하는 것이니"
+    },
+    {
+      "english": "You can say goodbye to (Penelope)",
+      "korean": "페넬로페에게 작별을 고할 수 있으리라"
+    },
+    {
+      "english": "I could raise him as my own",
+      "korean": "이 아이를 제 자식으로 키우겠습니다"
+    },
+    {
+      "english": "(He will burn your house and throne)",
+      "korean": "(그는 네 가문과 왕좌를 불태우리라)"
+    },
+    {
+      "english": "Or send him far away from home",
+      "korean": "아니면 고향에서 멀리 떠나보낼 수도요"
+    },
+    {
+      "english": "(He'll find you wherever you go)",
+      "korean": "(네가 어디로 가든지 그가 널 찾아내리라)"
+    },
+    {
+      "english": "Make sure his past is never known",
+      "korean": "그의 과거가 결코 알려지지 않게 할 수 있습니다"
+    },
+    {
+      "english": "(The gods will make him know)",
+      "korean": "(신들이 그를 알게 할지니라)"
+    },
+    {
+      "english": "I'd rather bleed for ya, I'm on my knees for ya",
+      "korean": "차라리 제가 대신 피를 흘리겠습니다, 무릎이라도 꿇겠습니다"
+    },
+    {
+      "english": "(He's bringing you down on your knees for ya)",
+      "korean": "(그가 너를 끌어내려 무릎 꿇릴지니라)"
+    },
+    {
+      "english": "I'm begging, please!",
+      "korean": "간청합니다, 부디!"
+    },
+    {
+      "english": "(Oh, this is the will of the gods)",
+      "korean": "(오, 이것이 신들의 뜻이로다)"
+    },
+    {
+      "english": "Please don't make me do this, don't make me do this",
+      "korean": "제발 제게 이 일을 시키지 마십시오, 제게 이 일을 시키지 마세요"
+    },
+    {
+      "english": "The blood on your hands is something you won't lose",
+      "korean": "네 손의 피는 네가 결코 면치 못할 것이니"
+    },
+    {
+      "english": "All you can choose is whose",
+      "korean": "네가 택할 수 있는 바는 누구의 피일지이다"
     }
   ],
   "title": "The Horse and the Infant"
