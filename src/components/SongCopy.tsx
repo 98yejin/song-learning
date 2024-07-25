@@ -59,9 +59,6 @@ const SongCopy: React.FC<SongActionProps> = (props: SongActionProps) => {
         onKeyDown={handleKeyPress}
       />
       <Button onClick={checkAnswer}>Check</Button>
-      {/* {isCorrect != undefined && (
-        <Typography>{isCorrect ? "O" : "X"}</Typography>
-      )} */}
       <Snackbar
         open={open}
         autoHideDuration={1500}
