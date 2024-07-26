@@ -1,4 +1,3 @@
-// AboutPage.tsx
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { Theme } from "../types/theme";
@@ -6,7 +5,7 @@ import { Theme } from "../types/theme";
 import { Sheet, Typography } from "@mui/joy";
 import BookRoundedIcon from "@mui/icons-material/BookRounded";
 
-import Header from "../components/Header";
+import { Header } from "../components/Header";
 import { SongTable } from "../components/Song";
 
 interface ThemeDescriptionProps {

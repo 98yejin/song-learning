@@ -41,7 +41,7 @@ type HeaderProps = {
   type?: string;
 };
 
-const Header: React.FC<HeaderProps> = ({ location, type }) => {
+export const Header: React.FC<HeaderProps> = ({ location, type }) => {
   const navigate = useNavigate();
   const handleHomeClick = () => {
     navigate("/");
@@ -95,4 +95,55 @@ const Header: React.FC<HeaderProps> = ({ location, type }) => {
   );
 };
 
-export default Header;
+type SongHeaderProps = {
+  theme: string;
+  song: string;
+};
+
+export const SongHeader: React.FC<SongHeaderProps> = ({ theme, song }) => {
+  const navigate = useNavigate();
+  const handleHomeClick = () => {
+    navigate("/");
+  };
+  return (
+    <Box
+      component="header"
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        p: 2,
+        borderBottom: "1px solid",
+        borderColor: "divider",
+      }}
+    >
+      <Box display="flex" alignItems="center" gap={2}>
+        <LocationTypography location={theme} type="folder" />
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          position: "absolute",
+          left: 0,
+          right: 0,
+        }}
+      >
+        <LocationTypography location={song} type="song" />
+      </Box>
+      <Box>
+        <IconButton onClick={handleHomeClick}>
+          <HomeIcon />
+        </IconButton>
+        <IconButton
+          component="a"
+          href="https://github.com/98yejin/song-learning"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GitHubIcon />
+        </IconButton>
+      </Box>
+    </Box>
+  );
+};

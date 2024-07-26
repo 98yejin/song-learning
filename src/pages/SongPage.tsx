@@ -1,11 +1,10 @@
-// AboutPage.tsx
 import React from "react";
 import { useLocation } from "react-router-dom";
 
 import { Box, Sheet, Typography } from "@mui/joy";
 import BookRoundedIcon from "@mui/icons-material/BookRounded";
 
-import Header from "../components/Header";
+import { Header, SongHeader } from "../components/Header";
 import SongCopy from "../components/SongCopy";
 import SongArrange from "../components/SongArrage";
 import SongTranslate from "../components/SongTranslate";
@@ -103,7 +102,7 @@ const SongPage: React.FC = () => {
   }, [studyResults, autoNavigate, index]);
   return (
     <Box>
-      <Header location={`${theme} / ${songData.title}`} type="song" />
+      <SongHeader theme={theme} song={songData.title} />
       <ActionGroup
         value={value}
         setValue={setValue}

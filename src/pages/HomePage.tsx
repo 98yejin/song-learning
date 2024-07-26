@@ -1,4 +1,3 @@
-// App.tsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +6,7 @@ import themeConfig from "../config/theme.json";
 import { SongNotFound } from "../components/Song";
 import { Theme } from "../types/theme";
 import { ThemeTable } from "../components/Theme";
-import Header from "../components/Header";
+import { Header } from "../components/Header";
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
