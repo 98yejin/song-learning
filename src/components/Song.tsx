@@ -5,6 +5,7 @@ import {
   Box,
   Button,
   ButtonGroup,
+  Checkbox,
   IconButton,
   Modal,
   ModalClose,
@@ -159,21 +160,41 @@ export const ActionGroup: React.FC<ActionGroupProps> = (
 ) => {
   const { value, setValue } = props;
   return (
-    <ToggleButtonGroup
-      value={value}
-      onChange={(_, newValue) => {
-        setValue(newValue);
-      }}
+    <Box
       sx={{
         display: "flex",
-        justifyContent: "flex-end",
-        padding: "1rem",
+        justifyContent: "space-between",
+        alignItems: "center", // This centers the children vertically
+        width: "100%",
       }}
     >
-      <Button value="copy">Copying</Button>
-      <Button value="arrange">Arranging</Button>
-      <Button value="translate">Translate</Button>
-    </ToggleButtonGroup>
+      <Box
+        sx={{
+          display: "flex",
+          fontSize: "1rem",
+          gap: "1rem",
+          padding: "1rem",
+        }}
+      >
+        <Checkbox label="Text-to-Speech" sx={{ fontSize: "0.8rem" }} />
+        <Checkbox label="Auto Navigation" sx={{ fontSize: "0.8rem" }} />
+      </Box>
+      <ToggleButtonGroup
+        value={value}
+        onChange={(_, newValue) => {
+          setValue(newValue);
+        }}
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+          padding: "1rem",
+        }}
+      >
+        <Button value="copy">Copying</Button>
+        <Button value="arrange">Arranging</Button>
+        <Button value="translate">Translate</Button>
+      </ToggleButtonGroup>
+    </Box>
   );
 };
 
