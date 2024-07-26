@@ -12,6 +12,7 @@ import SpeakerButton from "./SpeakerButton";
 
 const SongTranslate: React.FC<SongActionProps> = ({
   lyric,
+  tts,
   onResultUpdate,
 }) => {
   const [inputValue, setInputValue] = useState<string>("");
@@ -61,7 +62,7 @@ const SongTranslate: React.FC<SongActionProps> = ({
     >
       <Typography sx={{ maxWidth: "80%", fontSize: "1.5rem" }}>
         {lyric.korean}
-        <SpeakerButton text={lyric.english} />
+        <SpeakerButton text={lyric.english} tts={tts} />
       </Typography>
       <Input
         fullWidth

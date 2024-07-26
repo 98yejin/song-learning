@@ -12,6 +12,7 @@ import SongTranslate from "../components/SongTranslate";
 import StudyResults from "../components/SongResult";
 import { ActionGroup, ChangeIndexGroup } from "../components/Song";
 import { Song } from "../types/song";
+import SpeakerButton from "../components/SpeakerButton";
 
 interface DescriptionProps {
   description: string;
@@ -50,6 +51,9 @@ const SongPage: React.FC = () => {
   const maxIndex = lyrics.length - 1;
 
   const [value, setValue] = React.useState<string | null>(action);
+  const [tts, setTts] = React.useState<boolean>(true);
+  const [autoNavigate, setAutoNavigate] = React.useState<boolean>(true);
+
   const [index, setIndex] = React.useState<number>(0);
   const [studyResults, setStudyResults] = React.useState<boolean[]>(
     new Array(lyrics.length).fill(undefined)
@@ -67,20 +71,47 @@ const SongPage: React.FC = () => {
 
   let content;
   if (value === "copy") {
-    content = <SongCopy lyric={lyric} onResultUpdate={handleResultUpdate} />;
+    content = (
+      <SongCopy
+        lyric={lyric}
+        tts={tts}
+        autoNavigate={autoNavigate}
+        onResultUpdate={handleResultUpdate}
+      />
+    );
   } else if (value === "arrange") {
-    content = <SongArrange lyric={lyric} onResultUpdate={handleResultUpdate} />;
+    content = (
+      <SongArrange
+        lyric={lyric}
+        tts={tts}
+        autoNavigate={autoNavigate}
+        onResultUpdate={handleResultUpdate}
+      />
+    );
   } else if (value === "translate") {
     content = (
-      <SongTranslate lyric={lyric} onResultUpdate={handleResultUpdate} />
+      <SongTranslate
+        lyric={lyric}
+        tts={tts}
+        autoNavigate={autoNavigate}
+        onResultUpdate={handleResultUpdate}
+      />
     );
   }
 
   return (
     <Box>
       <Header location={`${theme} / ${songData.title}`} type="song" />
-      <ActionGroup value={value} setValue={setValue} />
+      <ActionGroup
+        value={value}
+        setValue={setValue}
+        tts={tts}
+        setTts={setTts}
+        autoNavigate={autoNavigate}
+        setAutoNavigate={setAutoNavigate}
+      />
       <Description description={songData.description} />
+      <SpeakerButton text={lyric.english} tts={tts} />
       {content}
       <ChangeIndexGroup index={index} maxIndex={maxIndex} setIndex={setIndex} />
       <StudyResults

@@ -11,7 +11,11 @@ const shuffleArray = (array: string[]) => {
   return array;
 };
 
-const SongArrange: React.FC<SongActionProps> = ({ lyric, onResultUpdate }) => {
+const SongArrange: React.FC<SongActionProps> = ({
+  lyric,
+  tts,
+  onResultUpdate,
+}) => {
   const [orderedWords, setOrderedWords] = useState<string[]>([]);
   const [message, setMessage] = useState<string>("");
   useEffect(() => {
@@ -101,7 +105,6 @@ const SongArrange: React.FC<SongActionProps> = ({ lyric, onResultUpdate }) => {
             <Typography sx={{ fontSize: "1.5rem" }}>{word}</Typography>
           </Box>
         ))}
-        <SpeakerButton text={lyric.english} />
       </Box>
       <Button onClick={checkAnswer}>Check</Button>
       <Snackbar

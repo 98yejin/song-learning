@@ -30,6 +30,10 @@ interface SongTableProps {
 interface ActionGroupProps {
   value: string | null;
   setValue: React.Dispatch<React.SetStateAction<string | null>>;
+  tts: boolean;
+  setTts: React.Dispatch<React.SetStateAction<boolean>>;
+  autoNavigate: boolean;
+  setAutoNavigate: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface ChangeIndexProps {
@@ -156,7 +160,7 @@ export const SongTable = ({ theme, songs }: SongTableProps) => {
 export const ActionGroup: React.FC<ActionGroupProps> = (
   props: ActionGroupProps
 ) => {
-  const { value, setValue } = props;
+  const { value, setValue, tts, setTts, autoNavigate, setAutoNavigate } = props;
   return (
     <Box
       sx={{
@@ -174,8 +178,18 @@ export const ActionGroup: React.FC<ActionGroupProps> = (
           padding: "1rem",
         }}
       >
-        <Checkbox label="Text-to-Speech" sx={{ fontSize: "0.8rem" }} />
-        <Checkbox label="Auto Navigation" sx={{ fontSize: "0.8rem" }} />
+        <Checkbox
+          label="Text-to-Speech"
+          checked={tts}
+          onChange={() => setTts(!tts)}
+          sx={{ fontSize: "0.8rem" }}
+        />
+        <Checkbox
+          label="Auto Navigation"
+          checked={autoNavigate}
+          onChange={() => setAutoNavigate(!autoNavigate)}
+          sx={{ fontSize: "0.8rem" }}
+        />
       </Box>
       <ToggleButtonGroup
         value={value}
