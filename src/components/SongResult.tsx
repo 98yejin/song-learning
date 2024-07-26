@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Table, Typography } from "@mui/joy";
+import { Box, Table } from "@mui/joy";
 interface StudyResultsProps {
   results: boolean[];
   currentIndex: number;
