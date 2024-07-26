@@ -1,7 +1,86 @@
+import { SetStateAction, useState } from "react";
 import { SongActionProps } from "../types/song";
+import {
+  Box,
+  Button,
+  Input,
+  Snackbar,
+  SnackbarProps,
+  Typography,
+} from "@mui/joy";
 
 const SongTranslate: React.FC<SongActionProps> = (props: SongActionProps) => {
-  return <div>translate {props.lyric.english}</div>;
+  const [inputValue, setInputValue] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [color, setColor] = useState<SnackbarProps["color"]>("neutral");
+  const [open, setOpen] = useState(false);
+
+  const handleInputChange = (event: {
+    target: { value: SetStateAction<string> };
+  }) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleKeyPress = (event: { key: string }) => {
+    if (event.key === "Enter") {
+      checkAnswer();
+    }
+  };
+
+  const checkAnswer = () => {
+    const isCorrect =
+      inputValue.toLowerCase().replace(/[^a-z0-9]/g, "") ===
+      props.lyric.english.toLowerCase().replace(/[^a-z0-9]/g, "");
+    if (isCorrect) {
+      setColor("success");
+      setMessage("Great!");
+    } else {
+      setColor("danger");
+      setMessage("Try Again...");
+    }
+    setOpen(true);
+  };
+
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "60vh",
+        width: "100vw",
+        margin: "0 auto",
+        gap: "2rem",
+      }}
+    >
+      <Typography sx={{ maxWidth: "80%", fontSize: "1.5rem" }}>
+        {props.lyric.korean}
+      </Typography>
+      <Input
+        fullWidth
+        sx={{ maxWidth: "80%", fontSize: "1.5rem" }}
+        value={inputValue}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyPress}
+      />
+      <Button onClick={checkAnswer}>Check</Button>
+      <Snackbar
+        open={open}
+        autoHideDuration={1500}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        color={color}
+        variant="soft"
+        size="lg"
+        invertedColors
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
+        <Typography>{message}</Typography>
+      </Snackbar>
+    </Box>
+  );
 };
 
 export default SongTranslate;
