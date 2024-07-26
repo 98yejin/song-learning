@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { SongActionProps } from "../types/song";
 import { Box, Button, Snackbar, SnackbarProps, Typography } from "@mui/joy";
-import SpeakerButton from "./SpeakerButton";
 
 const shuffleArray = (array: string[]) => {
   for (let i = array.length - 1; i > 0; i--) {

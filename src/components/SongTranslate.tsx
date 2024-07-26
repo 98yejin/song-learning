@@ -8,7 +8,6 @@ import {
   SnackbarProps,
   Typography,
 } from "@mui/joy";
-import SpeakerButton from "./SpeakerButton";
 
 const SongTranslate: React.FC<SongActionProps> = ({
   lyric,
@@ -62,7 +61,6 @@ const SongTranslate: React.FC<SongActionProps> = ({
     >
       <Typography sx={{ maxWidth: "80%", fontSize: "1.5rem" }}>
         {lyric.korean}
-        <SpeakerButton text={lyric.english} tts={tts} />
       </Typography>
       <Input
         fullWidth

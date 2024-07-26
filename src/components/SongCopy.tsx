@@ -8,7 +8,6 @@ import {
   SnackbarProps,
   Typography,
 } from "@mui/joy";
-import SpeakerButton from "./SpeakerButton";
 
 const SongCopy: React.FC<SongActionProps> = ({
   lyric,
