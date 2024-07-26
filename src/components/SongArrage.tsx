@@ -91,7 +91,7 @@ const SongArrange: React.FC<SongActionProps> = (props: SongActionProps) => {
               },
             }}
           >
-            <Typography>{word}</Typography>
+            <Typography sx={{ fontSize: "1.5rem" }}>{word}</Typography>
           </Box>
         ))}
       </Box>
