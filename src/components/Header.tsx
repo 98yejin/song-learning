@@ -59,9 +59,6 @@ const Header: React.FC<HeaderProps> = ({ location, type }) => {
       }}
     >
       <Box display="flex" alignItems="center" gap={2}>
-        <IconButton variant="outlined" onClick={handleHomeClick}>
-          <HomeIcon />
-        </IconButton>
         <Typography style={{ fontSize: "0.9rem", cursor: "default" }}>
           98yejin /{" "}
           <Typography component="span" style={{ fontWeight: 500 }}>
@@ -80,14 +77,20 @@ const Header: React.FC<HeaderProps> = ({ location, type }) => {
       >
         <LocationTypography location={location} type={type} />
       </Box>
-      <IconButton
-        component="a"
-        href="https://github.com/98yejin/song-learning"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <GitHubIcon />
-      </IconButton>
+
+      <Box>
+        <IconButton onClick={handleHomeClick}>
+          <HomeIcon />
+        </IconButton>
+        <IconButton
+          component="a"
+          href="https://github.com/98yejin/song-learning"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GitHubIcon />
+        </IconButton>
+      </Box>
     </Box>
   );
 };
