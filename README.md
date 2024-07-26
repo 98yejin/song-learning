@@ -26,4 +26,4 @@ Song Learning is a web application that helps users improve their English langua
 
 **Note:** Not all song lyrics have been uploaded yet. To experience the app with a pre-loaded song, please visit:
 
-[https://song-learning.vercel.app/song/warrior-of-the-mind.json](https://song-learning.vercel.app/song/warrior-of-the-mind.json)
+The Troy Saga > Warrior of the mind
