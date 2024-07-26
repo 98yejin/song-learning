@@ -1,4 +1,4 @@
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { SongActionProps } from "../types/song";
 import {
   Box,
@@ -9,15 +9,15 @@ import {
   Typography,
 } from "@mui/joy";
 
-const SongCopy: React.FC<SongActionProps> = ({
-  lyric,
-  tts,
-  onResultUpdate,
-}) => {
+const SongCopy: React.FC<SongActionProps> = ({ lyric, onResultUpdate }) => {
   const [inputValue, setInputValue] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [color, setColor] = useState<SnackbarProps["color"]>("neutral");
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setInputValue("");
+  }, [lyric]);
 
   const handleInputChange = (event: {
     target: { value: SetStateAction<string> };

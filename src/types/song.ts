@@ -12,7 +12,6 @@ export interface SongActionProps {
     english: string;
     korean: string;
   };
-  tts: boolean;
   autoNavigate: boolean;
   onResultUpdate: (isCorrect: boolean) => void;
 }

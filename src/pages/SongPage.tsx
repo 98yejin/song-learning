@@ -74,7 +74,6 @@ const SongPage: React.FC = () => {
     content = (
       <SongCopy
         lyric={lyric}
-        tts={tts}
         autoNavigate={autoNavigate}
         onResultUpdate={handleResultUpdate}
       />
@@ -83,7 +82,6 @@ const SongPage: React.FC = () => {
     content = (
       <SongArrange
         lyric={lyric}
-        tts={tts}
         autoNavigate={autoNavigate}
         onResultUpdate={handleResultUpdate}
       />
@@ -92,13 +90,17 @@ const SongPage: React.FC = () => {
     content = (
       <SongTranslate
         lyric={lyric}
-        tts={tts}
         autoNavigate={autoNavigate}
         onResultUpdate={handleResultUpdate}
       />
     );
   }
 
+  React.useEffect(() => {
+    if (autoNavigate && studyResults[index] === true) {
+      setIndex((prevIndex) => prevIndex + 1);
+    }
+  }, [studyResults, autoNavigate, index]);
   return (
     <Box>
       <Header location={`${theme} / ${songData.title}`} type="song" />
