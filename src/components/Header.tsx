@@ -69,7 +69,17 @@ const Header: React.FC<HeaderProps> = ({ location, type }) => {
           </Typography>
         </Typography>
       </Box>
-      <LocationTypography location={location} type={type} />
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          position: "absolute",
+          left: 0,
+          right: 0,
+        }}
+      >
+        <LocationTypography location={location} type={type} />
+      </Box>
       <IconButton
         component="a"
         href="https://github.com/98yejin/song-learning"

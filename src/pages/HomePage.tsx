@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      <Header location="home sweet home ⸜( ˙ ˘ ˙)⸝♡" />
+      <Header location="Forder Table" />
       <Container>
         <ThemeTable themes={themes} handleThemeClick={handleThemeClick} />
         <SongNotFound
