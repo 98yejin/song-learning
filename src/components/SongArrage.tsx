@@ -10,24 +10,30 @@ const shuffleArray = (array: string[]) => {
   return array;
 };
 
-const SongArrange: React.FC<SongActionProps> = (props: SongActionProps) => {
+const SongArrange: React.FC<SongActionProps> = ({ lyric, onResultUpdate }) => {
   const [orderedWords, setOrderedWords] = useState<string[]>([]);
+  const [message, setMessage] = useState<string>("");
   useEffect(() => {
-    const words = props.lyric.english.split(" ");
+    const words = lyric.english.split(" ");
     const shuffled = shuffleArray(words);
     setOrderedWords(shuffled);
-  }, [props.lyric]);
+  }, [lyric]);
 
-  const [isCorrect, setIsCorrect] = useState<boolean | undefined>(undefined);
   const [color, setColor] = useState<SnackbarProps["color"]>("neutral");
   const [open, setOpen] = useState(false);
 
   const checkAnswer = () => {
     const orderedSentence = orderedWords.join(" ");
     const isCorrectOrder =
-      orderedSentence.toLowerCase() === props.lyric.english.toLowerCase();
-    setIsCorrect(isCorrectOrder);
-    setColor(isCorrectOrder ? "success" : "danger");
+      orderedSentence.toLowerCase() === lyric.english.toLowerCase();
+    onResultUpdate(isCorrectOrder);
+    if (isCorrectOrder) {
+      setColor("success");
+      setMessage("Great!");
+    } else {
+      setColor("danger");
+      setMessage("Try Again...");
+    }
     setOpen(true);
   };
 
@@ -55,7 +61,7 @@ const SongArrange: React.FC<SongActionProps> = (props: SongActionProps) => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        height: "60vh",
+        height: "40vh",
         width: "100vw",
         margin: "0 auto",
         gap: "2rem",
@@ -105,7 +111,7 @@ const SongArrange: React.FC<SongActionProps> = (props: SongActionProps) => {
         size="lg"
         onClose={() => setOpen(false)}
       >
-        <Typography>{isCorrect ? "Great!" : "Try Again..."}</Typography>
+        <Typography>{message}</Typography>
       </Snackbar>
     </Box>
   );

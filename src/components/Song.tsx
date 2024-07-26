@@ -15,8 +15,8 @@ import {
   Typography,
 } from "@mui/joy";
 import AudioFileRoundedIcon from "@mui/icons-material/AudioFileRounded";
-import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
-import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 interface SongProps {
   showModal: boolean;
@@ -183,31 +183,25 @@ export const ChangeIndexGroup: React.FC<ChangeIndexProps> = (
   const leftDisabled = props.index === 0;
   const rightDisabled = props.index === props.maxIndex;
   return (
-    <Box sx={{ display: "flex", justifyContent: "center" }}>
-      <ButtonGroup
-        spacing="1rem"
-        variant="plain"
-        aria-label="plain button group"
+    <Box sx={{ display: "flex", justifyContent: "space-between", m: 2 }}>
+      <Button
+        onClick={() => {
+          props.setIndex(props.index - 1);
+        }}
+        disabled={leftDisabled}
+        startDecorator={<ArrowBackIosNewIcon />}
       >
-        <IconButton
-          variant="plain"
-          onClick={() => {
-            props.setIndex(props.index - 1);
-          }}
-          disabled={leftDisabled}
-        >
-          <ArrowCircleLeftIcon />
-        </IconButton>
-        <IconButton
-          variant="plain"
-          onClick={() => {
-            props.setIndex(props.index + 1);
-          }}
-          disabled={rightDisabled}
-        >
-          <ArrowCircleRightIcon />
-        </IconButton>
-      </ButtonGroup>
+        Previous
+      </Button>
+      <Button
+        onClick={() => {
+          props.setIndex(props.index + 1);
+        }}
+        disabled={rightDisabled}
+        endDecorator={<ArrowForwardIosIcon />}
+      >
+        Next
+      </Button>
     </Box>
   );
 };

@@ -9,7 +9,10 @@ import {
   Typography,
 } from "@mui/joy";
 
-const SongTranslate: React.FC<SongActionProps> = (props: SongActionProps) => {
+const SongTranslate: React.FC<SongActionProps> = ({
+  lyric,
+  onResultUpdate,
+}) => {
   const [inputValue, setInputValue] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [color, setColor] = useState<SnackbarProps["color"]>("neutral");
@@ -30,7 +33,8 @@ const SongTranslate: React.FC<SongActionProps> = (props: SongActionProps) => {
   const checkAnswer = () => {
     const isCorrect =
       inputValue.toLowerCase().replace(/[^a-z0-9]/g, "") ===
-      props.lyric.english.toLowerCase().replace(/[^a-z0-9]/g, "");
+      lyric.english.toLowerCase().replace(/[^a-z0-9]/g, "");
+    onResultUpdate(isCorrect);
     if (isCorrect) {
       setColor("success");
       setMessage("Great!");
@@ -48,14 +52,14 @@ const SongTranslate: React.FC<SongActionProps> = (props: SongActionProps) => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        height: "60vh",
+        height: "40vh",
         width: "100vw",
         margin: "0 auto",
         gap: "2rem",
       }}
     >
       <Typography sx={{ maxWidth: "80%", fontSize: "1.5rem" }}>
-        {props.lyric.korean}
+        {lyric.korean}
       </Typography>
       <Input
         fullWidth

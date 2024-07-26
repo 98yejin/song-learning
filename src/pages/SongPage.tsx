@@ -2,15 +2,16 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-import { Sheet, Typography } from "@mui/joy";
+import { Box, Sheet, Typography } from "@mui/joy";
 import BookRoundedIcon from "@mui/icons-material/BookRounded";
 
 import Header from "../components/Header";
-import { Song } from "../types/song";
 import SongCopy from "../components/SongCopy";
 import SongArrange from "../components/SongArrage";
 import SongTranslate from "../components/SongTranslate";
+import StudyResults from "../components/SongResult";
 import { ActionGroup, ChangeIndexGroup } from "../components/Song";
+import { Song } from "../types/song";
 
 interface DescriptionProps {
   description: string;
@@ -50,24 +51,44 @@ const SongPage: React.FC = () => {
 
   const [value, setValue] = React.useState<string | null>(action);
   const [index, setIndex] = React.useState<number>(0);
+  const [studyResults, setStudyResults] = React.useState<boolean[]>(
+    new Array(lyrics.length).fill(undefined)
+  );
+
   const lyric = lyrics[index];
+
+  const handleResultUpdate = (isCorrect: boolean) => {
+    setStudyResults((prevResults) => {
+      const newResults = [...prevResults];
+      newResults[index] = isCorrect;
+      return newResults;
+    });
+  };
 
   let content;
   if (value === "copy") {
-    content = <SongCopy lyric={lyric} />;
+    content = <SongCopy lyric={lyric} onResultUpdate={handleResultUpdate} />;
   } else if (value === "arrange") {
-    content = <SongArrange lyric={lyric} />;
+    content = <SongArrange lyric={lyric} onResultUpdate={handleResultUpdate} />;
   } else if (value === "translate") {
-    content = <SongTranslate lyric={lyric} />;
+    content = (
+      <SongTranslate lyric={lyric} onResultUpdate={handleResultUpdate} />
+    );
   }
+
   return (
-    <div>
+    <Box>
       <Header location={`${theme} / ${songData.title}`} type="song" />
       <ActionGroup value={value} setValue={setValue} />
       <Description description={songData.description} />
       {content}
       <ChangeIndexGroup index={index} maxIndex={maxIndex} setIndex={setIndex} />
-    </div>
+      <StudyResults
+        results={studyResults}
+        currentIndex={index}
+        onIndexChange={setIndex}
+      />
+    </Box>
   );
 };
 

@@ -9,9 +9,9 @@ import {
   Typography,
 } from "@mui/joy";
 
-const SongCopy: React.FC<SongActionProps> = (props: SongActionProps) => {
+const SongCopy: React.FC<SongActionProps> = ({ lyric, onResultUpdate }) => {
   const [inputValue, setInputValue] = useState<string>("");
-  const [isCorrect, setIsCorrect] = useState<boolean | undefined>(undefined);
+  const [message, setMessage] = useState<string>("");
   const [color, setColor] = useState<SnackbarProps["color"]>("neutral");
   const [open, setOpen] = useState(false);
 
@@ -28,9 +28,15 @@ const SongCopy: React.FC<SongActionProps> = (props: SongActionProps) => {
   };
 
   const checkAnswer = () => {
-    setIsCorrect(
-      inputValue.toLowerCase() === props.lyric.english.toLowerCase()
-    );
+    const isCorrect = inputValue.toLowerCase() === lyric.english.toLowerCase();
+    onResultUpdate(isCorrect);
+    if (isCorrect) {
+      setColor("success");
+      setMessage("Great!");
+    } else {
+      setColor("danger");
+      setMessage("Try Again...");
+    }
     setColor(isCorrect ? "success" : "danger");
     setOpen(true);
   };
@@ -42,14 +48,14 @@ const SongCopy: React.FC<SongActionProps> = (props: SongActionProps) => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        height: "60vh",
+        height: "40vh",
         width: "100vw",
         margin: "0 auto",
         gap: "2rem",
       }}
     >
       <Typography sx={{ maxWidth: "80%", fontSize: "1.5rem" }}>
-        {props.lyric.english}
+        {lyric.english}
       </Typography>
       <Input
         fullWidth
@@ -71,7 +77,7 @@ const SongCopy: React.FC<SongActionProps> = (props: SongActionProps) => {
           setOpen(false);
         }}
       >
-        <Typography>{isCorrect ? "Great!" : "Try Agrain..."}</Typography>
+        <Typography>{message}</Typography>
       </Snackbar>
     </Box>
   );
