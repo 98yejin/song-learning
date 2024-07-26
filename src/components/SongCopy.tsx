@@ -23,11 +23,22 @@ const SongCopy: React.FC<SongActionProps> = ({ lyric, onResultUpdate }) => {
     target: { value: SetStateAction<string> };
   }) => {
     setInputValue(event.target.value);
+    autoCheckAnswer(event.target.value.toString());
   };
 
   const handleKeyPress = (event: { key: string }) => {
     if (event.key === "Enter") {
       checkAnswer();
+    }
+  };
+
+  const autoCheckAnswer = (value: string) => {
+    const isCorrect = value.toLowerCase() === lyric.english.toLowerCase();
+    if (isCorrect) {
+      onResultUpdate(isCorrect);
+      setColor("success");
+      setMessage("Great!");
+      setOpen(true);
     }
   };
 

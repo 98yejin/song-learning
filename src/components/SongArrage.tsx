@@ -22,6 +22,18 @@ const SongArrange: React.FC<SongActionProps> = ({ lyric, onResultUpdate }) => {
   const [color, setColor] = useState<SnackbarProps["color"]>("neutral");
   const [open, setOpen] = useState(false);
 
+  const autoCheckAnswer = (newWords: string[]) => {
+    const orderedSentence = newWords.join(" ");
+    const isCorrectOrder =
+      orderedSentence.toLowerCase() === lyric.english.toLowerCase();
+    if (isCorrectOrder) {
+      setColor("success");
+      setMessage("Great!");
+      onResultUpdate(isCorrectOrder);
+      setOpen(true);
+    }
+  };
+
   const checkAnswer = () => {
     const orderedSentence = orderedWords.join(" ");
     const isCorrectOrder =
@@ -52,6 +64,7 @@ const SongArrange: React.FC<SongActionProps> = ({ lyric, onResultUpdate }) => {
     const [removed] = newWords.splice(dragIndex, 1);
     newWords.splice(dropIndex, 0, removed);
     setOrderedWords(newWords);
+    autoCheckAnswer(newWords);
   };
 
   return (
